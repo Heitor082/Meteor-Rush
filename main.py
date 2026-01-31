@@ -23,6 +23,13 @@ for i in range(77):
     terra_frames.append(terra_frame)
 terra_frame_index = 0
 
+cat_spritesheet = pygame.image.load("Assets/background/cat.png").convert_alpha()
+cat_frames = []
+for i in range(35):
+    cat_frame = cat_spritesheet.subsurface((i* 220, 0), (220, 239))
+    cat_frames.append(cat_frame)
+cat_frame_index = 0
+
 logo_imagem = pygame.image.load("Assets/background/logo.png")
 
 botao_start_spritesheet = pygame.image.load("Assets/botoes/botao_start.png")
@@ -96,6 +103,29 @@ def tela_jogando():
     jogador.andar()
     jogador.atirar()
 
+def tela_3():
+    tela.fill((0,0,0))
+
+    global background_frame_index
+    tela.blit(background_frames[int(background_frame_index)], (0, 0))
+    background_frame_index += 0.15
+    if background_frame_index > 8:
+        background_frame_index = 0
+
+    global terra_frame_index
+    terra_frame = terra_frames[int(terra_frame_index)]
+    terra_frame_ampliado = pygame.transform.scale(terra_frame, (3200, 1600))
+    tela.blit(terra_frame_ampliado, (-1000, 500))
+    terra_frame_index += 0.20
+    if terra_frame_index > 76:
+        terra_frame_index = 0
+
+    global cat_frame_index
+    tela.blit(cat_frames[int(cat_frame_index)], (490, 218))
+    cat_frame_index += 0.20
+    if cat_frame_index > 35:
+        cat_frame_index = 0
+
 tela_atual = 0
 
 rodando = True
@@ -115,5 +145,11 @@ while rodando:
             
     if tela_atual == 1:
         tela_jogando()
+    
+    if jogador.tela_3 == True:
+        tela_atual = 2
+
+    if tela_atual == 2:
+        tela_3()
         
     pygame.display.flip()

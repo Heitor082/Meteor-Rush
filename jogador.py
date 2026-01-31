@@ -10,6 +10,7 @@ class Jogador():
         self.index = index
         self.frame = frame
         self.atirando = False
+        self.tela_3 = False
 
     def desenhar(self, tela):
         self.jogador_atirando_frame = self.frame[int(self.index)]
@@ -26,6 +27,20 @@ class Jogador():
             self.x -= self.velocidade
         if self.teclas[pygame.K_d]:
             self.x += self.velocidade
+        if self.x >= 1100:
+            self.x = 1100
+        if self.x <= -200:
+            if self.y == -200:
+                pass
+            else:
+                self.x = -200
+        if self.y >= 525:
+            self.y = 525
+        if self.y <= -200:
+            self.y = -200
+        if self.x == -5000 and self.y == - 200:
+            self.tela_3 = True
+        
 
     def atirar(self):
         self.teclas = pygame.key.get_pressed()
