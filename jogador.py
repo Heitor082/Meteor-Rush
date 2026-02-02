@@ -24,6 +24,7 @@ class Jogador():
         self.inimigos_derrotados = 0
         self.especial_pronto = False
 
+
     def desenhar(self, tela):
         self.jogador_atirando_frame = self.frame[int(self.index)]
         self.jogador_atirando_frame_ampliado = pygame.transform.scale(self.jogador_atirando_frame, (self.largura, self.altura))
@@ -36,6 +37,7 @@ class Jogador():
             self.paralisia_index += 0.15
             if self.paralisia_index >= len(self.paralisia_frames):
                 self.paralisia_index = 0
+
 
     def andar(self):
         if self.paralisado:
@@ -75,7 +77,6 @@ class Jogador():
         self.collision_rect.x = self.x + 125
         self.collision_rect.y = self.y + 125
         
-
     def atirar(self):
         self.teclas = pygame.key.get_pressed()
         if self.teclas[pygame.K_SPACE]:

@@ -13,8 +13,8 @@ LARGURA_TELA = 1200
 ALTURA_TELA = 675
 tela = pygame.display.set_mode((LARGURA_TELA, ALTURA_TELA))
 pygame.display.set_caption("Meteor Rush")
-
 relogio = pygame.time.Clock()
+
 
 background_spritesheet = pygame.image.load("Assets/background/background.png").convert_alpha()
 background_frames = []
@@ -108,6 +108,7 @@ tempo_entre_tiros = 250
 
 especiais = []
 
+
 def desenhar_fundo(tela, incluir_gato=False):
     global background_frame_index
     tela.blit(background_frames[int(background_frame_index)], (0, 0))
@@ -130,6 +131,7 @@ def desenhar_fundo(tela, incluir_gato=False):
         if cat_frame_index > 35:
             cat_frame_index = 0
 
+
 def tela_inicial():
     tela.fill((0, 0, 0))
 
@@ -143,7 +145,8 @@ def tela_inicial():
 
     botao_quit.desenhar(tela)
     botao_quit.verificar_clique()
-        
+
+
 def tela_jogando():
     tela.fill((0,0,0))
 
@@ -221,10 +224,12 @@ def tela_jogando():
         especial_text = font.render("Especial Pronto! Pressione E", True, (255, 0, 0))
         tela.blit(especial_text, (10, 90))
 
+
 def tela_3():
     tela.fill((0,0,0))
 
     desenhar_fundo(tela, incluir_gato=True)
+
 
 def tela_game_over():
     tela.fill((0,0,0))

@@ -11,6 +11,7 @@ class Tiro():
         self.frame = frame
         self.rect = pygame.Rect(self.x, self.y, self.largura, self.altura)
 
+   
     def desenhar(self, tela):
         self.tiro_frame = self.frame[int(self.index)]
         self.tiro_frame_ampliado = pygame.transform.scale(self.tiro_frame, (self.largura, self.altura))
@@ -20,6 +21,7 @@ class Tiro():
             self.index = 0
         self.y -= self.velocidade
         self.rect.y = self.y
+
 
 class Especial():
     def __init__(self, x, y, largura, altura, velocidade, index, frame):
@@ -32,6 +34,7 @@ class Especial():
         self.frame = frame
         self.rect = pygame.Rect(self.x, self.y, self.largura, self.altura)
 
+    
     def desenhar(self, tela):
         if self.frame:
             self.especial_frame = self.frame[int(self.index)]

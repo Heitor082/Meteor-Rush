@@ -12,11 +12,13 @@ class Botao():
         self.valor = 0
         self.rect = pygame.Rect(self.x, self.y, self.largura, self.altura)
 
+
     def desenhar(self, tela):
         self.botao_frame = self.frame[int(self.index)]
         self.botao_frame_ampliado = pygame.transform.scale(self.botao_frame, (self.largura, self.altura))
         tela.blit(self.botao_frame_ampliado, (self.x, self.y))
-        
+
+
     def verificar_clique(self):
         self.mouse_posicao = pygame.mouse.get_pos()
         self.rect = pygame.Rect(self.x, self.y, self.largura, self.altura)

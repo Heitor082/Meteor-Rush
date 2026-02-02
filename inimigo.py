@@ -14,6 +14,7 @@ class Inimigo():
         self.collision_rect = pygame.Rect(self.x + 137.5, self.y + 137.5, 25, 25)
         self.animacao_morte_concluida = False
 
+
     def desenhar(self, tela):
         if self.vivo:
             self.inimigo_frame = self.frame[0]
@@ -27,6 +28,7 @@ class Inimigo():
                 self.index += 0.15
                 if self.index >= len(self.frame):
                     self.animacao_morte_concluida = True
+
 
     def mover(self, jogador):
         if self.vivo:
