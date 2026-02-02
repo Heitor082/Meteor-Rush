@@ -10,6 +10,7 @@ class Botao():
         self.altura = altura
         self.valor_do_botao = valor_do_botao
         self.valor = 0
+        self.rect = pygame.Rect(self.x, self.y, self.largura, self.altura)
 
     def desenhar(self, tela):
         self.botao_frame = self.frame[int(self.index)]
@@ -17,14 +18,13 @@ class Botao():
         tela.blit(self.botao_frame_ampliado, (self.x, self.y))
         
     def verificar_clique(self):
-        self.mouse_pressionado = pygame.mouse.get_pressed()
         self.mouse_posicao = pygame.mouse.get_pos()
         self.rect = pygame.Rect(self.x, self.y, self.largura, self.altura)
 
-        if self.mouse_pressionado[0] and self.rect.collidepoint(self.mouse_posicao):
+        if self.rect.collidepoint(self.mouse_posicao):
             self.index += 0.50
             if self.index > 4:
-                self.valor = self.valor_do_botao
+                self.index = 4
         else:
             self.index = 0
             
